@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Get GeoJSON</title>
+    <meta http-equiv="cleartype" content="on">
+    <link rel="stylesheet" href="//scraperwiki.com/vendor/style/bootstrap.min.css">
+    <link rel="stylesheet" href="//scraperwiki.com/style/scraperwiki.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="//scraperwiki.com/vendor/js/bootstrap.min.js"></script>
+    <script src="//scraperwiki.com/js/scraperwiki.js"></script>
+    <!--
+    https://raw.githubusercontent.com/eriwen/javascript-stacktrace/master/stacktrace.js
+    -->
+    <script src="stacktrace.js"></script>
+    <script src="input_box.js"></script>
+  </head>
+  <body>
+    <div id="settings">
+      <p id="label"><label for="source-url">Get GeoJSON from URL:</label></p>
+      <p id="inputs">
+        <input type="text" name="source-url" size="80" id="source-url"
+          class="sw-persist"
+          placeholder="https://&hellip;">
+        <button class="btn btn-primary pull-right" type="submit" id="source-go">Get Data</button>
+      </p>
+      <p id="message" class="muted">Try any GeoJSON URL
+      or try <a id="show-examples">one of our examples</a>. <!--
+      <label id="upload-a-file" for="file">upload a file from your
+      computer</label> -->
+      </p>
+    </div>
+
+    <div id="examples">
+      <ul>
+        <li><a href="http://www.manchester.gov.uk/site/custom_scripts/getdirectorygeo.php?directory=42&category=">Northern Grit</a></li>
+        <li><a href="http://www.paris-streetart.com/test/map.geojson">Parisian Street Art</a></li>
+        <li><a href="https://raw.githubusercontent.com/peterdesmet/traffic-signs-hansbeke/master/data/traffic-signs-hansbeke.geojson">Little Dutch Traffic Signs</a></li>
+        <li><a href="http://opendataserver.ashevillenc.gov/geoserver/ows?service=WFS&request=GetFeature&srsName=EPSG:4326&typeName=coagis:coa_crime_mapper_apd_locations_view&maxFeatures=10000&outputFormat=json">10,000 crimes in Asheville</a></li>
+        <li><a href="http://quakesearch.geonet.org.nz/services/1.0.0/geojson?bbox=163.60840,-49.18170,182.98828,-32.28713&startdate=2014-01-01&enddate=2014-08-01">13,000 earthquakes in New Zealand</a></li>
+      </ul>
+    </div>
+
+<script>
+$(function(){
+  $('#q').on('keypress', function(e){
+    if(e.which == 13) {
+      $('#source-go').trigger('click')
+    }
+  })
+})
+</script>
+  </body>
+</html>

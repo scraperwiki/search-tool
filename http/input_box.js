@@ -20,7 +20,7 @@ function saveSettings(callback) {
   var toSave = {}
   $('.sw-persist').each(function(i, element) {
     var $element = $(element)
-    toSave[element.id] = $element.val()
+    toSave[element.id] = $element.val().split(",")
   });
   var saveString = JSON.stringify(toSave, null, 4)
   var escapedString = scraperwiki.shellEscape(saveString)
@@ -73,9 +73,9 @@ $(function() {
     $('#source-go').on('click', function() {
       $(this).addClass('loading').html('Fetching…')
       saveSettings(function() {
-        scraperwiki.exec("tool/geojson.py", execSuccess)
-        var q = $('#source-url').val()
-        scraperwiki.dataset.name("GeoJSON from " + name_from_url(q))
+        scraperwiki.exec("tool/run_bing_search.py", execSuccess)
+        var q = $('#source-terms').val()
+        scraperwiki.dataset.name("Bing search results for " + name_from_url(q))
       })
     })
 
@@ -99,7 +99,7 @@ var name_from_url = function(url) {
 //   Clicking on popup populates the box.
 var setup_behaviour = function() {
   // :todo(drj): should be in scraperwiki.js
-  $("#source-url").attr('disabled', false).on('keyup', function(e){
+  $("#source-terms").attr('disabled', false).on('keyup', function(e){
     if(e.which == 13){  // carriage return
       e.preventDefault()
       $('#source-go').trigger('click')
@@ -119,7 +119,7 @@ var setup_behaviour = function() {
       e.preventDefault()
       $('body').animate({scrollTop: 0}, 200)
       $('#show-examples').popover('hide')
-      $("#source-url").val( $(this).attr('href') )
+      $("#source-terms").val( $(this).attr('href') )
       $('#error, .alert-error').hide()
     }
   })

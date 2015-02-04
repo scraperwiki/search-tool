@@ -51,15 +51,15 @@ body {
   margin: 0 0 15px 0;
 }
 
-#source-terms {
+#search-terms {
   width: 466px;
 }
 
-#source-go, #source-clear {
+#search-go, #search-clear {
   width: 110px;
 }
 
-#source-clear {
+#search-clear {
   display: none;
 }
 

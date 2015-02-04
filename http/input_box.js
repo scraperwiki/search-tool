@@ -70,11 +70,11 @@ $(function() {
       var datasetUrl = "/dataset/" + scraperwiki.box
       scraperwiki.tool.redirect(datasetUrl)
     }
-    $('#source-go').on('click', function() {
+    $('#search-go').on('click', function() {
       $(this).addClass('loading').html('Fetching…')
       saveSettings(function() {
         scraperwiki.exec("tool/run_bing_search.py", execSuccess)
-        var q = $('#source-terms').val()
+        var q = $('#search-terms').val()
         scraperwiki.dataset.name("Bing search results for " + name_from_url(q))
       })
     })
@@ -99,10 +99,10 @@ var name_from_url = function(url) {
 //   Clicking on popup populates the box.
 var setup_behaviour = function() {
   // :todo(drj): should be in scraperwiki.js
-  $("#source-terms").attr('disabled', false).on('keyup', function(e){
+  $("#search-terms").attr('disabled', false).on('keyup', function(e){
     if(e.which == 13){  // carriage return
       e.preventDefault()
-      $('#source-go').trigger('click')
+      $('#search-go').trigger('click')
     }
   })
 
@@ -119,7 +119,7 @@ var setup_behaviour = function() {
       e.preventDefault()
       $('body').animate({scrollTop: 0}, 200)
       $('#show-examples').popover('hide')
-      $("#source-terms").val( $(this).attr('href') )
+      $("#search-terms").val( $(this).attr('href') )
       $('#error, .alert-error').hide()
     }
   })

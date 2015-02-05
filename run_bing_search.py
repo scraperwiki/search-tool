@@ -46,7 +46,7 @@ def run_search(query_terms, bing_api_key):
         for result_number, result in enumerate(api.query(query_term)):
             row = OrderedDict([
                 ('search_term', query_term),
-                ('result_number', result_number),
+                ('result_number', result_number + 1),
                 ('url', result['Url']),
                 ('title', result['Title']),
                 ('description', result['Description']),

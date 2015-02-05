@@ -10,7 +10,7 @@ user-specified search terms.
 1. Clone this repository somewhere (`/home/tool` on a ScraperWiki box to
    get the web UI working).
 2. Make a virtualenv and `pip install 
-   git+https://github.com/scraperwiki/bing-python.git`. (You should be
+   -r requirements.txt`. (You should be
    able to use the `--user` option instead of a virtualenv if you
    prefer.)
 3. Get a Bing API key (see [here](https://github.com/scraperwiki/bing-python/blob/master/README.md)).

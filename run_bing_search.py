@@ -19,7 +19,8 @@ def get_bing_api_key_from_env():
         return os.environ['BING_API_KEY']
     except KeyError as e:
         print("Get an API key and export it as BING_API_KEY first.")
-	raise
+        raise
+
 
 def get_query_terms(argv):
     """ Return list of query terms from args or JSON list in allSettings.json.
@@ -60,7 +61,7 @@ def main(argv=None):
     bing_api_key = get_bing_api_key_from_env()
     query_terms = get_query_terms(argv)
     run_search(query_terms, bing_api_key)
-    
+
 
 if __name__ == '__main__':
     # TODO remove this hack; needed as execution stops on platform

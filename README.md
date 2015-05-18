@@ -14,7 +14,7 @@ user-specified search terms.
    able to use the `--user` option instead of a virtualenv if you
    prefer.)
 3. Get a Bing API key (see [here](https://github.com/scraperwiki/bing-python/blob/master/README.md)).
-4. Add `export BING_API_KEY='<YOUR_API_KEY>' to `~/.bash_profile` and
+4. Add `export BING_API_KEY='<YOUR_API_KEY>'` to `~/.bash_profile` and
    optionally reload `~/.bash_profile` in the current terminal: do
    `. ~/.bash_profile` if you want to use the tool immediately.
 
